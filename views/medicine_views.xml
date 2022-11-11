@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_medicine_medicine_tree" model="ir.ui.view">
+        <field name="name">medicine.medicine.tree</field>
+        <field name="model">medicine.medicine</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="medicine_id" string="Medicine ID"/>
+                <field name="name" string="Medicine Name"/>
+                <field name="department_id" string="Department"/>
+                <field name="currency_id" string="Currency" invisible="1"/>
+                <field name="unit_price" string="Unit Price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="iew_medicine_medicine_form" model="ir.ui.view">
+        <field name="name">medicine.medicine.form</field>
+        <field name="model">medicine.medicine</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <div>
+                            <h1>
+                                <field name="medicine_id" string="Medicine ID"/>
+                            </h1>
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="name" string="Medicine Name"/>
+                            <field name="currency_id" string="Currency" invisible="1"/>
+                            <field name="unit_price" string="Unit Price"/>
+                        </group>
+                        <group>
+                            <field name="department_id" string="Department"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_medicine_medicine" model="ir.actions.act_window">
+        <field name="name">Medicine</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">medicine.medicine</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Medicine!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="medicine_root"
+              name="Medicine"
+              action="action_medicine_medicine"
+              parent="hospital_master"
+              groups="hospital_management.group_admin_hospital"
+              sequence="2"/>
+</odoo>

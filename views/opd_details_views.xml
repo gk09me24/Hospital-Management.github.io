@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_opd_details_tree" model="ir.ui.view">
+        <field name="name">opd.details.tree</field>
+        <field name="model">opd.details</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="state == 'cancel'" sample="1">
+                <field name="opd_id" string="OPD Id"/>
+                <field name="opd_date"/>
+                <field name="department_id" string="Department Name"/>
+                <field name="doctor_id" string="Doctor Name" domain="[('department','=',department_id)]"/>
+                <field name="patient_id" string="Patient Name"/>
+                <field name="gender" string="Gender"/>
+                <field name="contact_number" string="Mobile"/>
+                <field name="dob" string="Date Of Birth"/>
+                <field name="age" string="Age"/>
+                <field name="priority" string="Priority" widget="priority"/>
+                <field name="state" string="Status" widget="badge"
+                       decoration-success="state == 'confirm'"
+                       decoration-danger="state == 'cancel'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'done'"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_opd_details_form" model="ir.ui.view">
+        <field name="name">opd.details.form</field>
+        <field name="model">opd.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirm,done"
+                           options="{'clickable': 0}"/>
+
+                    <button name="goto_confirm" type="object"
+                            string="Confirm" class="btn-outline-warning"
+                            attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+                    <button name="goto_done" type="object"
+                            string="Done" class="btn-outline-success"
+                            attrs="{'invisible': [('state', 'not in', ['confirm'])]}"/>
+                    <button name="goto_cancel" type="object"
+                            string="Cancel" class="btn-outline-danger"
+                            attrs="{'invisible': [('state', 'not in', ['done'])]}"/>
+                    <button name="goto_draft" type="object"
+                            string="Draft" class="oe_highlight"
+                            attrs="{'invisible': [('state', 'not in', ['cancel'])]}"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Confirmed" bg_color="bg-success"
+                            attrs="{'invisible': [('state', 'not in', ['confirm'])]}"/>
+                    <widget name="web_ribbon" title="Cancel" bg_color="bg-danger"
+                            attrs="{'invisible': [('state', 'not in', ['cancel'])]}"/>
+                    <widget name="web_ribbon" title="Done" bg_color="bg-warning"
+                            attrs="{'invisible': [('state', 'not in', ['done'])]}"/>
+                    <group>
+                        <div>
+                            <h1>
+                                <field name="opd_id" string="OPD Id"/>
+                            </h1>
+                        </div>
+                    </group>
+                    <group>
+                        <group string="Patient Details">
+                            <field name="opd_date"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="patient_id" string="Patient Name"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="gender" string="Gender"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="contact_number" string="Mobile"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="dob" string="Date Of Birth"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="age" string="Age" readonly="True"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="address" string="Address"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                        </group>
+                        <group string="Doctor Details">
+                            <field name="department_id" string="Department Name"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="doctor_id" string="Doctor Name"
+                                   domain="[('department','=',department_id)]"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            <field name="priority" string="Priority" widget="priority"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Medicine" name="medicine_details">
+                            <!--                            <group string="Choose Medicine Accordingly">-->
+                            <!--                                <field name="sequence_id" string="Sequnece" invisible="1"/>-->
+                            <field name="medicine_ids" string="Medicine Details"
+                                   context="{'default_medicine_department_id': department_id}"
+                                   widget="section_and_note_one2many">
+                                <tree editable="bottom">
+                                    <!--                                    <control>-->
+                                    <!--                                        <create name="add_product_control" string="Add Medicine"/>-->
+                                    <!--                                    </control>-->
+                                    <field name="medicine_department_id" string="Medicine Details" invisible="1"/>
+                                    <field name="medicine_details_id" string="Medicine Name"
+                                           domain="[('department_id', '=', medicine_department_id)]"/>
+                                    <field name="qty" string="Qty"/>
+                                    <field name="currency_id" string="Currency" invisible="1"/>
+                                    <field name="unit_price" string="Unit Price"/>
+                                    <field name="currency_id" string="Currency" invisible="1"/>
+                                    <field name="sub_total_price" string="Sub total"/>
+                                </tree>
+                            </field>
+                            <div class="row text-right">
+                                <div class="font-weight-bold col-12">
+                                    <span>Total:</span>
+                                    <field name="currency_id" string="Currency" invisible="1"/>
+                                    <field name="total" string="Total"/>
+                                </div>
+                            </div>
+                            <!--                            </group>-->
+                            <!--                            <group name="note_group" col="4" class="mt-2 mt-md-0">-->
+                            <!--                                &lt;!&ndash;                                <group colspan="4">&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                    <field colspan="2" name="note" nolabel="1" placeholder="Terms and conditions..."/>&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                </group>&ndash;&gt;-->
+                            <!--                                <group class="oe_subtotal_footer oe_right" colspan="2" name="Total:" style="text-bold">-->
+                            <!--                                    <field name="total" nolabel="1" colspan="2"-->
+                            <!--                                           readonly="1"/>-->
+                            <!--                                </group>-->
+                            <!--                                <div class="clearfix"/>-->
+                            <!--                            </group>-->
+                        </page>
+
+                        <page string="Prescription" name="prescription_details">
+                            <group>
+                                <field name="prescription" string="Prescription Details"
+                                       placeholder="Write Here..."
+                                       options="{'collaborative' : true, 'resizable' : true}"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_opd_details_kanban" model="ir.ui.view">
+        <field name="name">opd.details.kanban</field>
+        <field name="model">opd.details</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" archivable="false" js_class="crm_kanban" sample="1"
+                    default_group_by="doctor_id">
+                <field name="patient_id" string="Patient Name"/>
+                <field name="department_id" string="Department Name"/>
+                <field name="doctor_id" string="Doctor Name" domain="[('department','=',department_id)]"/>
+                <field name="opd_date"/>
+                <progressbar field="state" colors="{
+                                               &quot;confirm&quot;: &quot;success&quot;,
+                                               &quot;done&quot;: &quot;warning&quot;,
+                                               &quot;cancel&quot;: &quot;danger&quot;,
+                                               &quot;draft&quot;: &quot;muted&quot;}"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title">
+                                    <span>
+                                        <h5>
+                                            <field name="opd_id" string="OPD Id"/>
+                                        </h5>
+                                    </span>
+                                </strong>
+                            </div>
+                            <div>
+                                <span class="o_kanban_record_subtitle">
+                                    <field name="department_id" string="Department Name"/>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="o_kanban_record_subtitle">
+                                    <field name="patient_id" string="Patient Name"/>
+                                </span>
+                            </div>
+
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown"
+                                   data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.editable">
+                                        <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                    </t>
+                                    <t t-if="widget.deletable">
+                                        <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                    </t>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <strong>
+                                            <field name="opd_date" string="OPD Date"/>
+                                        </strong>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="priority" string="Priority" widget="priority"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_opd_details" model="ir.actions.act_window">
+        <field name="name">OPD</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">opd.details</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first OPD!
+            </p>
+        </field>
+    </record>
+    <menuitem id="opd_root"
+              name="OPD"
+              action="action_opd_details"
+              parent="hospital_master"
+              sequence="4"/>
+</odoo>

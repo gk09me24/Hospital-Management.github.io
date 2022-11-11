@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for class.class -->
+        <record id="seq_opd_details" model="ir.sequence">
+            <field name="name">OPD</field>
+            <field name="code">opd.details</field>
+            <field name="prefix">OP</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

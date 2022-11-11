@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_opd_data" model="ir.actions.report">
+            <field name="name">OPD</field>
+            <field name="model">opd.details</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hospital_management.report_opddetails</field>
+            <field name="report_file">hospital_management.report_opddetails</field>
+            <field name="print_report_name">'OPD - %s' % object.opd_id</field>
+            <field name="binding_model_id" ref="model_opd_details"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_patient_details_xls" model="ir.actions.report">
+            <field name="name">Patient Excel</field>
+            <field name="model">patient.details</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">hospital_management.report_patient_details_xls</field>
+            <field name="report_file">hospital_management.report_patient_details_xls</field>
+            <field name="binding_model_id" ref="model_patient_details"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

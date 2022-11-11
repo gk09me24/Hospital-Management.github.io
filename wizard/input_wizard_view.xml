@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="input_wizard_view_form" model="ir.ui.view">
+        <field name="name">input.wizard.form</field>
+        <field name="model">input.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group class="oe_title">
+                    <group string="Choose the Department">
+                        <field name="department"/>
+                    </group>
+                    <group string="Choose Doctor Accordingly">
+                        <field name="doctor_id" domain="[('department','=',department)]"/>
+                    </group>
+                    <group>
+                        <field name="opd_date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="create_opd" string="Create OPD" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="input_wizard" model="ir.actions.act_window">
+        <field name="name">Fill the Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">input.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="input_wizard_view_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

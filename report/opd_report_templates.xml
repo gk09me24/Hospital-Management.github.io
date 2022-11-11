@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_opddetails_document">
+        <t t-call="web.external_layout">
+            <!--            <div t-field="doc.patient_id" style="text-align:right; font-weight:bold;"/>-->
+            <!--            <div t-field="doc.address" style="text-align:right;"/>-->
+            <!--            <hr style="height:4px; background-color:red; opacity:1;"/>-->
+            <div class="row mt-2" style="background-color:#ff6347; color:white;">
+                <div class="col-9">
+                    <span style="font-size:20pt;">OPD #</span>
+                    <span t-field="doc.opd_id" style="font-size:20pt;"/>
+                </div>
+                <div class="col-3 mt-2">
+                    <strong>OPD Date:</strong>
+                    <span t-field="doc.opd_date"/>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-8">
+                    <strong>Patient Name:</strong>
+                    <span t-field="doc.patient_id"/>
+                </div>
+                <div class="col-4">
+                    <strong>Doctor Name:</strong>
+                    <span t-field="doc.doctor_id"/>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-8">
+                    <strong>Gender:</strong>
+                    <span t-field="doc.gender"/>
+                </div>
+                <div class="col-4">
+                    <strong>Department:</strong>
+                    <span t-field="doc.department_id"/>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-8">
+                    <strong>DOB:</strong>
+                    <span t-field="doc.dob"/>
+                </div>
+                <div class="col-4">
+                    <strong>Priority:</strong>
+                    <span t-field="doc.priority"/>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-8">
+                    <strong>Contact No.:</strong>
+                    <span t-field="doc.contact_number"/>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-8">
+                    <strong>Age:</strong>
+                    <span t-field="doc.age"/>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <strong>Address:</strong>
+                    <span t-field="doc.address"/>
+                </div>
+            </div>
+            <div style="color:red; margin-top:20pt; font-size:20px">
+                <!--                <p style="page-break-after:always;"/>-->
+                <h3 class="mt-2">Medicine Details:</h3>
+            </div>
+
+            <!--<div> & <Table> tag not used in combined-->
+
+            <!-- <div style="text-align:center;">-->
+
+            <table class="table table-bordered border-warning table-sm">
+                <thead>
+                    <tr>
+                        <th class="text-center">Medicine Name</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-center">Unit Prie</th>
+                        <th class="text-center">Sub Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-if="o.medicine_department_id == doc.department_id" t-foreach="docs.medicine_ids" t-as="o">
+                        <td class="text-center">
+                            <span t-field="o.medicine_details_id"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="o.qty"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="o.unit_price"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="o.sub_total_price"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row mt-2 text-right">
+                <div class="font-weight-bold col-11">
+                    <span>Total :</span>
+                    <span t-field="doc.total"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_opddetails">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="hospital_management.report_opddetails_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

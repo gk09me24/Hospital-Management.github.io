@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_patient_details_tree" model="ir.ui.view">
+        <field name="name">patient.details.tree</field>
+        <field name="model">patient.details</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="patient_id" string="Patient ID"/>
+                <field name="name" string="Patient Name"/>
+                <field name="address" string="Address"/>
+                <field name="dob" string="Date Of Birth"/>
+                <field name="age" string="Age"/>
+                <field name="contact_number" string="Mobile"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_patient_details_form" model="ir.ui.view">
+        <field name="name">patient.details.form</field>
+        <field name="model">patient.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_opd_patient" type="object" class="oe_stat_button" icon="fa-list">
+                            <div class="o_stat_info">
+                                <field name="opd_count_patient" class="o_stat_value"/>
+                                <span class="o_stat_text">OPD</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div>
+                        <h1>
+                            <field name="patient_id" string="Patient ID"/>
+                        </h1>
+                    </div>
+                    <group string="Patient Details">
+                        <group>
+                            <field name="name" string="Patient Name"/>
+                            <field name="gender" string="Gender"/>
+                            <field name="contact_number" string="Mobile"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="dob" string="Date Of Birth"/>
+                            <field name="age" string="Age"/>
+                            <field name="email_id" string="Email Id"/>
+                            <field name="address" string="Address"/>
+                        </group>
+                    </group>
+                    <group>
+                        <button name="%(hospital_management.input_wizard)d" type="action"
+                                string="Create OPD" class="btn btn-lg btn-outline-success"
+                                context="{'default_lead_id': active_id}"
+                                groups="hospital_management.group_admin_hospital"/>
+
+                        <button name="create_user_patient" type="object"
+                                string="Create User" class="btn btn-lg btn btn-outline-info"
+                                groups="hospital_management.group_admin_hospital"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_patient_details" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.details</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Patient!
+            </p>
+        </field>
+    </record>
+    <menuitem id="patient_root"
+              name="Patient"
+              action="action_patient_details"
+              parent="hospital_master"
+              sequence="3"/>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--this record is for Cardiology-->
+
+        <record id="model_medicine_medicine_demo_1_1" model="medicine.medicine">
+            <field name="name">Acebutolol (Sectral)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+        </record>
+        <record id="model_medicine_medicine_demo_1_2" model="medicine.medicine">
+            <field name="name">Atenolol (Tenormin)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+        </record>
+        <record id="model_medicine_medicine_demo_1_3" model="medicine.medicine">
+            <field name="name">Betaxolol (Kerlone)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+        </record>
+        <record id="model_medicine_medicine_demo_1_4" model="medicine.medicine">
+            <field name="name">Bisoprolol (Zebeta)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+        </record>
+        <record id="model_medicine_medicine_demo_1_5" model="medicine.medicine">
+            <field name="name">Nadolol (Corgard)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+        </record>
+
+        <!--this record is for Neurology-->
+
+        <record id="model_medicine_medicine_demo_2_1" model="medicine.medicine">
+            <field name="name">Ampyra (dalfampridine)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+        </record>
+         <record id="model_medicine_medicine_demo_2_2" model="medicine.medicine">
+            <field name="name">Brineura (cerliponase alfa)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+        </record>
+         <record id="model_medicine_medicine_demo_2_3" model="medicine.medicine">
+            <field name="name">Fetzima (levomilnacipran)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+        </record>
+         <record id="model_medicine_medicine_demo_2_4" model="medicine.medicine">
+            <field name="name">Galzin (zinc acetate)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+        </record>
+         <record id="model_medicine_medicine_demo_2_5" model="medicine.medicine">
+            <field name="name">Imcivree (setmelanotide)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+        </record>
+         <record id="model_medicine_medicine_demo_2_6" model="medicine.medicine">
+            <field name="name">Lamictal (lamotrigine)</field>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+        </record>
+    </data>
+</odoo>

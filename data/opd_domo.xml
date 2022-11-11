@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="model_opd_details_demo_1_1" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=3)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_1_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_1"/>
+            <field name="state">done</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_4')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_2" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=2)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_1_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_1"/>
+            <field name="state">draft</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_3" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=5)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_2_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_2"/>
+            <field name="state">cancel</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_4" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=8)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_2_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_2"/>
+            <field name="state">confirm</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_5'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_6'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3')])]"/>
+        </record>
+        <record id="model_opd_details_demo_1_5" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=2)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_2_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_2"/>
+            <field name="state">done</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_3')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_6" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() - relativedelta(days=3)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_1_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_1"/>
+            <field name="state">cancel</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_7" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=18)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_1_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_1"/>
+            <field name="state">draft</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_2'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_4'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_6')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_8" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=3)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_2_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_1"/>
+            <field name="state">confirm</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_2'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_9" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() - relativedelta(days=2)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_1_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_1"/>
+            <field name="state">cancel</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_5'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_6')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_10" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=4)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_2_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_2"/>
+            <field name="state">draft</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_11" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=1)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_2_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_2"/>
+            <field name="state">done</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_4'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_12" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=2)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_1_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_2"/>
+            <field name="state">done</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_5'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_6')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_13" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=1)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_2_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_2"/>
+            <field name="state">confirm</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_14" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=3)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_2_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_1"/>
+            <field name="state">cancel</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_15" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=1)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_1_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_2"/>
+            <field name="state">draft</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_2'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_3')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_16" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() + relativedelta(days=2)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_1_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_1"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_1_1"/>
+            <field name="state">done</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_1_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_4'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_1_5')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_17" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() - relativedelta(days=2)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_1_2_1"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_1"/>
+            <field name="state">cancel</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3')])]"/>
+        </record>
+
+        <record id="model_opd_details_demo_1_18" model="opd.details">
+            <field name="opd_date" eval="DateTime.today() - relativedelta(days=5)"/>
+            <field name="prescription">1. Augmentin 625 Duo Tablet
+                2. Azithral 500 Tablet
+                3. Alprax 0.5mg Tablet
+            </field>
+            <field name="patient_id" ref="hospital_management.model_patient_details_demo_2_1_2"/>
+            <field name="department_id" ref="hospital_management.model_department_department_demo_2"/>
+            <field name="doctor_id" ref="hospital_management.model_doctor_details_demo_2_2"/>
+            <field name="state">done</field>
+            <field name="medicine_ids" eval="[(6, 0, [ref('hospital_management.model_medicine_medicine_demo_2_1'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_3'),
+                                                      ref('hospital_management.model_medicine_medicine_demo_2_6')])]"/>
+        </record>
+    </data>
+</odoo>

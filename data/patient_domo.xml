@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--this record is for Cardiology & Chiman Pawar -->
+
+        <record id="model_patient_details_demo_1_1_1" model="patient.details">
+            <field name="name">Gautam Kundaria</field>
+            <field name="address">C-704,Malabar County-I, Chharodi, Ahmedabad, 382481, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=31)"/>
+            <field name="gender">male</field>
+            <field name="contact_number">9598764562</field>
+        </record>
+        <record id="model_patient_details_demo_1_1_2" model="patient.details">
+            <field name="name">Harikrushna Chavda</field>
+            <field name="address">C-702, Vandematram Fabula, Chharodi, Ahmedabad, 382481, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=25)"/>
+            <field name="gender">male</field>
+            <field name="contact_number">9508760062</field>
+        </record>
+
+        <!--this record is for Cardiology & Satish Dhavan -->
+
+        <record id="model_patient_details_demo_1_2_1" model="patient.details">
+            <field name="name">Dhiraj Chavda</field>
+            <field name="address">D-508, Swarnim Sqaure, Chharodi, Ahmedabad, 382481, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=27)"/>
+            <field name="gender">male</field>
+            <field name="contact_number">6000045678</field>
+        </record>
+        <record id="model_patient_details_demo_1_2_2" model="patient.details">
+            <field name="name">Savan Munjal</field>
+            <field name="address">E-802, NRI Tower, Pakwan Cross Road, Ahmedabad, 382256, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=30)"/>
+            <field name="gender">male</field>
+            <field name="contact_number">7000344568</field>
+        </record>
+
+        <!--this record is for Neurology & Himanshu Trivedi -->
+
+        <record id="model_patient_details_demo_2_1_1" model="patient.details">
+            <field name="name">Nayan Kalariya</field>
+            <field name="address">E-1201, Pushpak Height, Satelite, Ahmedabad, 384028, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=24)"/>
+            <field name="gender">male</field>
+            <field name="contact_number">8000455789</field>
+        </record>
+        <record id="model_patient_details_demo_2_1_2" model="patient.details">
+            <field name="name">Drashti Patel</field>
+            <field name="address">I-304, Mondel Park, New Nikol, Ahmedabad, 384037, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=22)"/>
+            <field name="gender">female</field>
+            <field name="contact_number">7890453467</field>
+        </record>
+
+        <!--this record is for Neurology & Surekha Panchal -->
+
+        <record id="model_patient_details_demo_2_2_1" model="patient.details">
+            <field name="name">Mouni Roy</field>
+            <field name="address">E-205, Hirapana Complex, Andheri New, Mumbai, 383058, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=32)"/>
+            <field name="gender">female</field>
+            <field name="contact_number">8000034456</field>
+        </record>
+        <record id="model_patient_details_demo_2_2_2" model="patient.details">
+            <field name="name">Jayram Jambukiya</field>
+            <field name="address">A-101, Park Avenue, Ghatlodiya, Ahmedabad, 384570, India</field>
+            <field name="dob" eval="DateTime.today() - relativedelta(years=24)"/>
+            <field name="gender">male</field>
+            <field name="contact_number">7600045362</field>
+        </record>
+    </data>
+</odoo>
