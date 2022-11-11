@@ -7,6 +7,7 @@
 	'author': 'Candidroot Solution',
 	'description': """
             You can manage Patient & Doctor OPD Shedule for Hospital.
+            Testing purpose for git pracrice
     """,
 	'website': 'www.candidroot.com',
 	'depends': ['base', 'report_xlsx'],
