@@ -110,7 +110,7 @@
                                 </tree>
                             </field>
                             <div class="row text-right">
-                                <div class="font-weight-bold col-12">
+                                <div class="col-12" style="font-size:1.5rem; font-style:bold;">
                                     <span>Total:</span>
                                     <field name="currency_id" string="Currency" invisible="1"/>
                                     <field name="total" string="Total"/>
